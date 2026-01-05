@@ -15,7 +15,9 @@ class App extends Component {
   };
 
   toggleProfile = () => {
-    this.setState(prevState => ({ shows: !prevState.shows }));
+    this.setState(prevState => ({
+      shows: !prevState.shows
+    }));
   };
 
   render() {
@@ -24,8 +26,12 @@ class App extends Component {
     return (
       <div className="app-container">
         <ToggleButton shows={shows} onToggle={this.toggleProfile} />
-        <Timer />
-        {shows && <Profile person={Person} />}
+        {shows && (
+          <>
+            <Timer />
+            <Profile person={Person} />
+          </>
+        )}
       </div>
     );
   }
